@@ -26,3 +26,8 @@ function operate(operator, first, second) {
             return div(first, second)
     }
 }
+
+function changeDisplay(num) {
+    let display = document.querySelector(.display)
+    display = num
+}

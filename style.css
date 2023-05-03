@@ -1,0 +1,10 @@
+#container {
+    display: flex;
+}
+
+#display {
+    flex: 1;
+    border: 2px solid rgb(16, 73, 54);
+    border-radius: 25px;
+    text-align: center;
+}
