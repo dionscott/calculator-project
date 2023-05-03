@@ -28,6 +28,6 @@ function operate(operator, first, second) {
 }
 
 function changeDisplay(num) {
-    let display = document.querySelector('.display')
-    display = num;
+    let display = document.querySelector('#display')
+    display.textContent = num;
 }
