@@ -39,8 +39,24 @@ let operator = "";
 function write(input) {
     //takes an input and displays it
     //keeps display until an operator, clear, or equal is selected
-    firstInput += input;
-    changeDisplay(firstInput);
+    if (operator == "") {
+        firstInput += input;
+        changeDisplay(firstInput);
+    } else {
+        secondInput += input;
+        changeDisplay(secondInput)
+    }
+}
+
+//clears the operator before and change the operator
+function changeOperator(input) {
+    clearOperator();
+    operator += input;
+}
+
+//clears only the operator 
+function clearOperator() {
+    operator = "";
 }
 
 //clear first and second input
@@ -92,3 +108,17 @@ document.querySelector('#num9').addEventListener('click', function() {
 
 //clear button
 document.querySelector('#clear').addEventListener('click', clear);
+
+//change the operator
+document.querySelector('#plus').addEventListener('click', function() {
+    changeOperator("+");
+});
+document.querySelector('#minus').addEventListener('click', function() {
+    changeOperator("-");
+});
+document.querySelector('#mult').addEventListener('click', function() {
+    changeOperator("*");
+});
+document.querySelector('#divide').addEventListener('click', function() {
+    changeOperator("/");
+});
