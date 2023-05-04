@@ -31,6 +31,11 @@ function operate(operator, first, second) {
             let multiply = mult(firstNum, secondNum)
             return Math.round((multiply + Number.EPSILON) * 100) / 100;
         case "/":
+            if (firstNum == 0 || secondNum == 0) {
+                clearAll()
+                alert("What are you tryna do? Break infinity?!?!");
+                break;
+            }
             let divide = div(firstNum, secondNum)
             return Math.round((divide + Number.EPSILON) * 100) / 100;
     }
@@ -55,11 +60,19 @@ function write(input) {
 function answer() {
     let input = ""
     input = operate(operator, firstInput, secondInput)
-    changeDisplay(input);
-    //change firstInput var to answer
-    firstInput = input;
-    //clear the second input
-    secondInput = ""
+    //checks if the operation is correct
+    if (input) {
+        changeDisplay(input);
+        //change firstInput var to answer
+        firstInput = input;
+        //clear the second input
+        secondInput = ""
+    } else {
+        //if the operation is undefined clear the board and reset display
+        clearAll()
+        changeDisplay()
+    }
+
 
     // clearAll()
 }
