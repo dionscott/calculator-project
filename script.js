@@ -22,13 +22,17 @@ function operate(operator, first, second) {
     const secondNum = Number(second)
     switch (operator) {
         case "+":
-            return add(firstNum, secondNum)
+            let sum = add(firstNum, secondNum)
+            return Math.round((sum + Number.EPSILON) * 100) / 100;
         case "-":
-            return sub(firstNum, secondNum)
+            let subtract = sub(firstNum, secondNum)
+            return Math.round((subtract + Number.EPSILON) * 100) / 100;
         case "*":
-            return mult(firstNum, secondNum)
+            let multiply = mult(firstNum, secondNum)
+            return Math.round((multiply + Number.EPSILON) * 100) / 100;
         case "/":
-            return div(firstNum, secondNum)
+            let divide = div(firstNum, secondNum)
+            return Math.round((divide + Number.EPSILON) * 100) / 100;
     }
 }
 //create the first input variable
@@ -54,6 +58,8 @@ function answer() {
     changeDisplay(input);
     //change firstInput var to answer
     firstInput = input;
+    //clear the second input
+    secondInput = ""
 
     // clearAll()
 }
@@ -63,8 +69,6 @@ function changeOperator(input) {
     if (firstInput && secondInput) {
         //change the operator
         answer()
-        //clear the second input
-        secondInput = ""
         clearOperator();
         operator += input;
     } else {
