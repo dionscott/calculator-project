@@ -52,13 +52,30 @@ function answer() {
     let input = ""
     input = operate(operator, firstInput, secondInput)
     changeDisplay(input);
-    clear()
+    //change firstInput var to answer
+    firstInput = input;
+
+    // clearAll()
 }
 
 //clears the operator before and change the operator
 function changeOperator(input) {
-    clearOperator();
-    operator += input;
+    if (firstInput && secondInput) {
+        //change the operator
+        answer()
+        //clear the second input
+        secondInput = ""
+        clearOperator();
+        operator += input;
+        //calculate answer change first input to answer
+        
+        //then write over second input
+        //then calculate the answer and display it
+    } else {
+        clearOperator();
+        operator += input;
+    }
+    
 }
 
 //clears only the operator 
@@ -67,11 +84,24 @@ function clearOperator() {
 }
 
 //clear first and second input
-function clear() {
+function clearAll() {
     firstInput = "";
     secondInput = "";
     operator = "";
     // changeDisplay(firstInput)
+}
+
+//checks if there is an input for both the first and second
+function check() {
+    if (firstInput && secondInput) {
+        return true
+    } 
+    return false
+}
+
+function clear() {
+    clearAll();
+    changeDisplay(firstInput);
 }
 
 function changeDisplay(num) {
