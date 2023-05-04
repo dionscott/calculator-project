@@ -48,6 +48,13 @@ function write(input) {
     }
 }
 
+function answer() {
+    let input = ""
+    input = operate(operator, firstInput, secondInput)
+    changeDisplay(input);
+    clear()
+}
+
 //clears the operator before and change the operator
 function changeOperator(input) {
     clearOperator();
@@ -64,7 +71,7 @@ function clear() {
     firstInput = "";
     secondInput = "";
     operator = "";
-    changeDisplay(firstInput)
+    // changeDisplay(firstInput)
 }
 
 function changeDisplay(num) {
@@ -122,3 +129,5 @@ document.querySelector('#mult').addEventListener('click', function() {
 document.querySelector('#divide').addEventListener('click', function() {
     changeOperator("/");
 });
+
+document.querySelector('#equal').addEventListener('click', answer);
