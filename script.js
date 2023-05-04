@@ -1,3 +1,4 @@
+//functions to do math operations
 function add(a,b) {
     return a + b;
 }
@@ -14,31 +15,48 @@ function div(a,b) {
     return a / b;
 }
 
+//takes operator and first and second number
 function operate(operator, first, second) {
+    //convert the string to numbers
+    const firstNum = Number(first)
+    const secondNum = Number(second)
     switch (operator) {
         case "+":
-            return add(first, second)
+            return add(firstNum, secondNum)
         case "-":
-            return sub(first, second)
+            return sub(firstNum, secondNum)
         case "*":
-            return mult(first, second)
+            return mult(firstNum, secondNum)
         case "/":
-            return div(first, second)
+            return div(firstNum, secondNum)
     }
 }
-//create the complete input variable
-let completeInput = "";
+//create the first input variable
+let firstInput = "";
+let secondInput = "";
+let operator = "";
+
 function write(input) {
     //takes an input and displays it
     //keeps display until an operator, clear, or equal is selected
-    completeInput += input;
-    changeDisplay(completeInput);
+    firstInput += input;
+    changeDisplay(firstInput);
+}
+
+//clear first and second input
+function clear() {
+    firstInput = "";
+    secondInput = "";
+    operator = "";
+    changeDisplay(firstInput)
 }
 
 function changeDisplay(num) {
     let display = document.querySelector('#display')
     display.textContent = num;
 }
+
+
 
 //adding event listeners to numbers
 document.querySelector('#num0').addEventListener('click', function() {
@@ -72,3 +90,5 @@ document.querySelector('#num9').addEventListener('click', function() {
     write("9");
 });
 
+//clear button
+document.querySelector('#clear').addEventListener('click', clear);
