@@ -67,10 +67,6 @@ function changeOperator(input) {
         secondInput = ""
         clearOperator();
         operator += input;
-        //calculate answer change first input to answer
-        
-        //then write over second input
-        //then calculate the answer and display it
     } else {
         clearOperator();
         operator += input;
