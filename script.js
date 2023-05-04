@@ -74,8 +74,7 @@ function changeOperator(input) {
     } else {
         clearOperator();
         operator += input;
-    }
-    
+    }   
 }
 
 //clears only the operator 
